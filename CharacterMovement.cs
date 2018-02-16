@@ -4,43 +4,28 @@ using UnityEngine;
 
 public abstract class CharacterMovement : MonoBehaviour
 {
-    public float Speed = 2.0F;
-
-
-
-
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
+    public float Speed = 500F;
+    private Animator animator;
+    protected Vector2 direction;
 
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-
-
+        animator = GetComponent<Animator>();
     }
-    void GetInput()
+    protected virtual void Update()
     {
-        if ()
-        {
-
-        }
-        if (true)
-        {
-
-        }
-        if (true)
-        {
-
-        }
-        if (true)
-        {
-
-        }
+        Move();
+        direction = Vector2.zero;
     }
-
+    protected void Move()
+    {
+        transform.Translate(direction * Speed * Time.deltaTime);
+    }
+    public void AnimateMovement(Vector2 direction)
+    {
+        animator.SetFloat("x", direction.x);
+        animator.SetFloat("y", direction.y);
+    }
 
 }
