@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SceneFadeInOut : MonoBehaviour
 {
     public float fadeSpeed = 1.5f;
@@ -55,7 +56,7 @@ public class SceneFadeInOut : MonoBehaviour
         if (GetComponent<GUITexture>().color.a >= 0.95f)
         {
             sceneEnding = false;
-            Application.LoadLevel(1);
+           ;
         }
     }
 
